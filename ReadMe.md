@@ -79,15 +79,6 @@ Resistance to being pushed (0.0 = slides easily, 1.0 = resistant).
 
 ---
 
-## Resources
-
-<p align="center">
-  <img src="Resources/Banner.svg" alt="Vehicle Wetness Banner" width="800">
-  <br>
-  <i>GitHub Social Preview / Banner (1280x640)</i>
-</p>
-
----
 
 ## Technical Details
 
@@ -101,8 +92,9 @@ Resistance to being pushed (0.0 = slides easily, 1.0 = resistant).
 
 This plugin is under the [MIT License](LICENSE.md).
 
-MIT allows commercial use.  
-You may use, modify, and distribute the software in commercial products without restriction, provided the original copyright notice is included.
+MIT License does allow commercial use. You can use, modify, and distribute the software in a commercial product without any restrictions.
+
+However, you must include the original copyright notice and disclaimers.
 
 ---
 
